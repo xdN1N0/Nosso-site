@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Tempo Juntos S2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: #fff; /* Texto branco para contraste */
+      padding: 20px;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+
+      /* Fundo animado com entrelaçamento de cores */
+      background: linear-gradient(90deg, black, pink, black);
+      background-size: 200% 200%;
+      animation: wave 5s ease-in-out infinite;
+    }
+
+    /* Animação para criar movimento */
+    @keyframes wave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #counter {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    img {
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Nosso Tempo Juntos S2:</h1>
+  
+  <!-- Imagem do casal -->
+  <img src="Site.jpg" alt="Nossa Foto">
+
+  <!-- Texto personalizado -->
+  <p>
+    Esse contador eu pensei a bastante tempo, eu te amo muito Eyshila e queria achar uma forma de saber há quanto tempo nos conhecemos. A uns 3 meses eu vi um contador e pensei em fazer. Esse é o resultado do nosso amor juntos. 
+  </p>
+
+  <!-- Contador de tempo -->
+  <div id="counter">Carregando...</div>
+
+  <script>
+    // Data de início do relacionamento
+    const startDate = new Date("2024-07-12T00:00:00"); // Substitua pela data que quiser
+
+    function updateCounter() {
+      const now = new Date();
+      const elapsedTime = now - startDate; // Diferença em milissegundos
+
+      const days = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((elapsedTime / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
+      const seconds = Math.floor((elapsedTime / 1000) % 60);
+
+      document.getElementById("counter").textContent =
+        `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+    }
+
+    // Atualiza o contador a cada segundo
+    setInterval(updateCounter, 1000);
+
+    // Chama a função inicialmente
+    updateCounter();
+  </script>
+</body>
+</html>
